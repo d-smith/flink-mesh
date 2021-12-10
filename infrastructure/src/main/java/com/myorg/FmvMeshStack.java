@@ -1,10 +1,13 @@
 package com.myorg;
 
+import software.amazon.awscdk.services.ec2.IVpc;
+import software.amazon.awscdk.services.ec2.Vpc;
+import software.amazon.awscdk.services.ec2.VpcLookupOptions;
+import software.amazon.awscdk.services.ecr.CfnRepository;
+import software.amazon.awscdk.services.ecs.Cluster;
 import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
-// import software.amazon.awscdk.Duration;
-// import software.amazon.awscdk.services.sqs.Queue;
 
 public class FmvMeshStack extends Stack {
     public FmvMeshStack(final Construct scope, final String id) {
@@ -14,11 +17,16 @@ public class FmvMeshStack extends Stack {
     public FmvMeshStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        // The code that defines your stack goes here
+        final String helloRepoName = "fmv-mesh/hello";
 
-        // example resource
-        // final Queue queue = Queue.Builder.create(this, "FmvMeshQueue")
-        //         .visibilityTimeout(Duration.seconds(300))
-        //         .build();
+        CfnRepository repo = CfnRepository.Builder.create(this, helloRepoName)
+                .repositoryName(helloRepoName)
+                .build();
+
+        IVpc vpc = Vpc.fromLookup(this, "Vpc", VpcLookupOptions.builder()
+                .isDefault(true)
+                .build());
+        Cluster cluster = Cluster.Builder.create(this, "fmv-cluster").vpc(vpc).build();
+
     }
 }

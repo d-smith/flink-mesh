@@ -116,7 +116,8 @@
 				<version>3.1.4</version>
 				<configuration>
 				<to>
-					<image>fmv</image>
+					<image>fmv-mesh/hello:${project.version}</image>
+					<image>${env.PA_ACCOUNT_NO}.dkr.ecr.${env.AWS_REGION}.amazonaws.com/fmv-mesh/hello:${project.version}</image>
 				</to>
 				<container>
 					<mainClass>org.ds.flink.app.Hello</mainClass>
