@@ -23,10 +23,7 @@ public class FmvMeshStack extends Stack {
                 .repositoryName(helloRepoName)
                 .build();
 
-        IVpc vpc = Vpc.fromLookup(this, "Vpc", VpcLookupOptions.builder()
-                .isDefault(true)
-                .build());
-        Cluster cluster = Cluster.Builder.create(this, "fmv-cluster").vpc(vpc).build();
+
 
     }
 }
