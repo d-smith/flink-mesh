@@ -1,4 +1,4 @@
-package com.myorg;
+package org.ds.appmesh;
 
 import software.amazon.awscdk.services.ec2.IVpc;
 import software.amazon.awscdk.services.ec2.Vpc;

@@ -1,10 +1,8 @@
-package com.myorg;
+package org.ds.appmesh;
 
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.StackProps;
-
-import java.util.Arrays;
 
 public class ServiceApp {
     public static void main(final String[] args) {
